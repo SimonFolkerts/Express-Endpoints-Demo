@@ -5,13 +5,13 @@ server.use(express.json()); // <-- enable reading of JSON fomratted request payl
 
 // this is an example of a very simple back end that handles C.R.U.D. actions to the root domain (http://localhost:3000/)
 
-// CREATE - receives a data payload, often used to upload to database
+// CREATE - receives a data payload from the client, often used to upload to database
 server.post("/", (req, res) => {
   console.log(req.body); // <-- this is the data payload from the client
   res.send("data received"); // <-- sending back confirmation message
 });
 
-// READ - used to send data/content to client, is the default behaviour fo a browser visiting a page
+// READ - used to send data/content to client, is the default behaviour for a browser visiting a page. No payload from client
 server.get("/", (req, res) => {
   res.send("Welcome to the article website");
 });
@@ -22,7 +22,7 @@ server.put("/", (req, res) => {
   res.send("data received"); // <-- sending back confirmation message
 });
 
-// DELETE - usually receives an id, deletes entry in database
+// DELETE - usually receives an id, deletes entry in database. No payload from the client
 server.delete("/", (req, res) => {
   res.send("deleted"); // <-- sending back confirmation message
 });
